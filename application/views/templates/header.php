@@ -10,6 +10,7 @@
     <meta name="author" content="">
 
     <title><?= $title; ?></title>
+    <link rel="icon" href="<?= base_url('assets/img/icon/'); ?>icon.png" type="image/gif">
 
     <!-- Custom fonts for this template-->
     <link href="<?= base_url('assets/'); ?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -27,4 +28,4 @@
 <body id="page-top">
 
     <!-- Page Wrapper -->
-    <div id="wrapper"> 
+    <div id="wrapper">
