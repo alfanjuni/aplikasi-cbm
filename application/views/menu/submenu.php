@@ -41,8 +41,8 @@
                             <td><?= $sm['icon']; ?></td>
                             <td><?= $sm['is_active']; ?></td>
                             <td>
-                                <a href="" class="badge badge-success "><i class="fas fa-fw fa-edit"></i>ubah</a>
-                                <a href="" class="badge badge-danger " onclick="return confirm('yakin?');"><i class="fas fa-fw fa-trash"></i>hapus</a>
+                                <a href="<?= base_url() ?>menu/ubahSubmenu/<?= $sm['id']; ?>" class="badge badge-success "><i class="fas fa-fw fa-edit"></i>ubah</a>
+                                <a href="<?= base_url() ?>menu/deleteSubmenu/<?= $sm['id']; ?>" class="badge badge-danger " onclick="return confirm('yakin?');"><i class="fas fa-fw fa-trash"></i>hapus</a>
                             </td>
                         </tr>
                         <?php $i++; ?>

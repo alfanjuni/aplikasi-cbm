@@ -8,6 +8,7 @@ class Admin extends CI_Controller
         parent::__construct();
         $this->load->model('Departemen_model');
         $this->load->model('Karyawan_model');
+        $this->load->model('Role_model');
         $this->load->library('form_validation');
         is_logged_in();
     }
@@ -30,16 +31,25 @@ class Admin extends CI_Controller
 
         $data['role'] = $this->db->get('user_role')->result_array();
 
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('admin/role', $data);
-        $this->load->view('templates/footer');
+        $this->form_validation->set_rules('role', 'Role', 'required');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('admin/role', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $this->Role_model->tambahRole();
+            $this->session->set_flashdata('flash', 'Ditambahkan');
+            redirect('admin/role');
+        }
     }
+
 
     public function roleaccess($role_id)
     {
-        $data['title'] = 'Role Access';
+        $data['title'] = 'Role';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
         $data['role'] = $this->db->get_where('user_role', ['id' => $role_id])->row_array();
@@ -53,6 +63,36 @@ class Admin extends CI_Controller
         $this->load->view('templates/topbar', $data);
         $this->load->view('admin/role-access', $data);
         $this->load->view('templates/footer');
+    }
+
+    public function ubahRole($id=0)
+    {
+        $data['title'] = 'Role';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['role'] = $this->Role_model->getRoleById($id);
+
+
+        $this->form_validation->set_rules('role', 'role', 'required');
+
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('admin/ubah-role', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $this->Role_model->ubahDataRole();
+            $this->session->set_flashdata('flash', 'Diubah');
+            redirect('admin/role');
+        }
+    }
+
+    public function deleteRole($id)
+    {
+        $this->Role_model->hapusRole($id);
+        $this->session->set_flashdata('flash', 'Dihapus');
+        redirect('admin/role');
     }
 
     public function changeaccess()

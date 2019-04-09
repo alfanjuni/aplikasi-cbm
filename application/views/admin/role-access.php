@@ -10,35 +10,44 @@
 
             <?= $this->session->flashdata('message'); ?>
 
-            <h5>Role : <?= $role['role']; ?></h5>
+            <div class="card">
+                <div class="card-header ">
 
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Menu</th>
-                        <th scope="col">Access</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php $i = 1; ?>
-                    <?php foreach ($menu as $m) : ?>
-                    <tr>
-                        <th scope="row"><?= $i; ?></th>
-                        <td><?= $m['menu']; ?></td>
-                        <td>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" <?= check_access($role['id'], $m['id']); ?> data-role="<?= $role['id']; ?>" data-menu="<?= $m['id']; ?>">
+                    <h5>Role : <?= $role['role']; ?></h5>
+                </div>
 
-                            </div>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Menu</th>
+                            <th scope="col">Access</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php $i = 1; ?>
+                        <?php foreach ($menu as $m) : ?>
+                                            <tr>
+                                                <th scope="row"><?= $i; ?></th>
+                                            <td><?= $m['menu']; ?></td>
+                                            <td>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" <?= check_access($role['id'], $m['id']); ?> data-role="<?= $role['id']; ?>" data-menu="<?= $m['id']; ?>">
 
-                        </td>
-                    </tr>
-                    <?php $i++; ?>
-                    <?php endforeach ?>
+                                                                                                                                                                            </div>
 
-                </tbody>
-            </table>
+                                                                                                                                                                        </td>
+                                                                                                                                                                    </tr>
+                                                                                                                                                                    <?php $i++; ?>
+                                                                                                                                                                                                                                                                                                                                    <?php endforeach ?>
+
+                    </tbody>
+                </table>
+
+                <div class="card-footer">
+                    <a href="<?= base_url(); ?>admin/role" class="btn btn-primary float-right">Kembali</a>
+                </div>
+            </div>
 
         </div>
     </div>
@@ -50,4 +59,4 @@
     <!-- Content Row -->
 </div>
 <!-- End of Main Content -->
-</div> 
+</div>

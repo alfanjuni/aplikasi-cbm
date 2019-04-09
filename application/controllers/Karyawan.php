@@ -43,7 +43,7 @@ class Karyawan extends CI_Controller
 
     public function detail($id)
     {
-        $data['title'] = 'Detail Data Karyawan';
+        $data['title'] = 'Daftar Karyawan';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['karyawan'] = $this->Karyawan_model->getKaryawanById($id);
         $this->load->view('templates/header', $data);
@@ -59,9 +59,9 @@ class Karyawan extends CI_Controller
         redirect('karyawan');
     }
 
-    public function ubah($id)
+    public function ubah($id = 0)
     {
-        $data['title'] = 'Form Ubah Data Karyawan';
+        $data['title'] = 'Daftar Karyawan';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['karyawan'] = $this->Karyawan_model->getKaryawanById($id);
 

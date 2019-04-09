@@ -50,16 +50,65 @@ class Menu extends CI_Controller
         redirect('menu');
     }
 
-    public function editMenu($id)
+    public function deleteSubmenu($id)
     {
+        $this->Menu_model->deleteSubmenu($id);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+            Sub Menu Deleted
+          </div>');
+        redirect('menu/submenu');
+    }
 
+    public function ubahMenu($id=0)
+    {
+        $data['title'] = 'Menu Management';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $this->load->model('Menu_model', 'menu');
+        $data['menu'] = $this->Menu_model->getMenuById($id);
 
-        $data['menu'] = $this->menu->getMenu();
 
-        $this->form_validation->set_rules('menu', 'Menu', 'required');
-        $this->form_validation->set_rules('menu_order', 'Menu Order', 'required');
+        $this->form_validation->set_rules('menu', 'menu', 'required');
+        $this->form_validation->set_rules('menu_order', 'menu_order', 'required');
+
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('menu/ubah-menu', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $this->Menu_model->ubahMenu();
+            $this->session->set_flashdata('flash', 'Diubah');
+            redirect('menu');
+        }
+    }
+
+    public function ubahSubmenu($id=0)
+    {
+        $data['title'] = 'Submenu Management';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['subMenu'] = $this->Menu_model->getSubmenuById($id);
+        $data['menu'] = $this->db->get('user_menu')->result_array();
+
+        $this->form_validation->set_rules('title', 'title', 'required');
+        $this->form_validation->set_rules('menu_id', 'menu_id', 'required');
+        $this->form_validation->set_rules('url', 'url', 'required');
+        $this->form_validation->set_rules('icon', 'icon', 'required');
+
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('menu/ubah-submenu', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $this->Menu_model->ubahSubmenu();
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+            Sub Menu Diubah
+          </div>');
+            redirect('menu/submenu');
+        }
     }
 
 
