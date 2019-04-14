@@ -17,7 +17,11 @@
                         <div class="form-group">
                         <select name="menu_id" id="menu_id" class="form-control">
                             <?php foreach ($menu as $m) : ?>
+                            <?php if($m['id']==$subMenu['menu_id']): ?>
+                            <option value="<?= $m['id']; ?>" selected><?= $m['menu']; ?></option>
+                            <?php else : ?>
                             <option value="<?= $m['id']; ?>"><?= $m['menu']; ?></option>
+                            <?php endif; ?>
                             <?php endforeach; ?>
 
                         </select>

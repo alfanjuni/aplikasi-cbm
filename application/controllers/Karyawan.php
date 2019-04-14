@@ -19,12 +19,14 @@ class Karyawan extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['karyawan'] = $this->Karyawan_model->getAllKaryawan();
         $data['departemen'] = $this->Departemen_model->getAllDepartemen();
+        $data['jabatan'] = ['KARYAWAN','MANDOR','ASISTEN MANDOR'];
 
 
 
         $this->form_validation->set_rules('nama_karyawan', 'Nama_karyawan', 'required');
         $this->form_validation->set_rules('kota', 'Kota', 'required');
         $this->form_validation->set_rules('dep_karyawan', 'Dep_karyawan', 'required');
+        $this->form_validation->set_rules('jabatan', 'Jabatan', 'required');
         //$this->form_validation->set_rules('tgl_masuk', 'Tgl_masuk', 'required');
 
         if ($this->form_validation->run() == false) {
@@ -66,6 +68,7 @@ class Karyawan extends CI_Controller
         $data['karyawan'] = $this->Karyawan_model->getKaryawanById($id);
 
         $data['departemen'] = $this->Departemen_model->getAllDepartemen();
+        $data['jabatan'] = ['KARYAWAN','MANDOR','ASISTEN MANDOR'];
 
 
 

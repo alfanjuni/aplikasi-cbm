@@ -49,6 +49,7 @@
                             <th>ID</th>
                             <th>Nama Karyawan</th>
                             <th>Departemen</th>
+                            <th>Jabatan</th>
                             <th>Kota</th>
                             <th>Tanggal Masuk</th>
                             <th>Action</th>
@@ -60,6 +61,7 @@
                             <th>ID</th>
                             <th>Nama Karyawan</th>
                             <th>Departemen</th>
+                            <th>Jabatan</th>
                             <th>Kota</th>
                             <th>Tanggal Masuk</th>
                             <th>Action</th>
@@ -73,6 +75,7 @@
                             <td><?= $kar['id_karyawan']; ?></td>
                             <td><?= $kar['nama_karyawan']; ?></td>
                             <td><?= $kar['nama_departemen']; ?></td>
+                            <td><?= $kar['jabatan']; ?></td>
                             <td><?= $kar['kota']; ?></td>
                             <td><?= $kar['tgl_masuk']; ?></td>
                             <td>
@@ -119,6 +122,15 @@
 
                             </select>
                         </div>
+                        <div class="form-group">
+                        <label for="jabatan">Jabatan</label>
+                        <select class="form-control" id="jabatan" name="jabatan">
+                            <option value="KARYAWAN">KARYAWAN</option>
+                            <option value="MANDOR">MANDOR</option>
+                            <option value="ASISTEN MANDOR">ASISTEN MANDOR</option>
+                        
+                        </select>
+                    </div>
                         <div class="form-group">
                             <label for="kota">Kota</label>
                             <input type="text" class="form-control" id="kota" name="kota">

@@ -28,6 +28,20 @@
                             </select>
                         </div>
                         <div class="form-group">
+                        <label for="jabatan">Jabatan</label>
+                            <select class="form-control" id="jabatan" name="jabatan">
+                        <?php foreach( $jabatan as $j):?>
+                        
+                            <?php if($j == $karyawan['jabatan']):?>
+                                <option value="<?= $j?>" selected><?= $j?></option>
+                            <?php else:?>
+                                <option value="<?= $j?>"><?= $j?></option>
+                            <?php endif;?>
+                        <?php endforeach;?>
+                        
+                        </select>
+                    </div>
+                        <div class="form-group">
                             <label for="kota">Kota</label>
                             <input type="text" class="form-control" id="kota" name="kota" value="<?= $karyawan['kota']; ?>">
                             <small class="form-text text-danger"><?= form_error('kota'); ?></small>
