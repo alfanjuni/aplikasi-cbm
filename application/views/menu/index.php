@@ -46,7 +46,7 @@
                         <?php $i = 1; ?>
                         <?php foreach ($menu as $m) : ?>
                             <tr>
-                                <th scope="row"><?= $i; ?></th>
+                                <td scope="row"><?= $i; ?></td>
                                 <td><?= $m['menu']; ?></td>
                                 <td><?= $m['menu_order']; ?></td>
                                 <td>
