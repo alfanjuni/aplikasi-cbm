@@ -21,6 +21,25 @@ class Karyawan_model extends CI_model
 
         return $karyawan;
     }
+    public function getAllKaryawanSortName()
+    {
+        /*
+        $queryKaryawan = "SELECT *
+                        FROM `karyawan` JOIN `departemen` 
+                        ON `karyawan`.`dep_karyawan` = `departemen`.`id_departemen`
+                    ";
+
+        $karyawan = $this->db->query($queryKaryawan)->result_array();
+        */
+        /* Mengambil data dari table karyawan*/
+        $this->db->select('*');
+        $this->db->from('karyawan');
+        $this->db->order_by('nama_karyawan', 'ASC');
+        $this->db->join('departemen', 'id_departemen = dep_karyawan');
+        $karyawan = $this->db->get()->result_array();
+
+        return $karyawan;
+    }
 
     public function getKaryawanById($id)
     {

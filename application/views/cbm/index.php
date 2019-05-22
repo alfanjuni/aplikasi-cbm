@@ -66,7 +66,6 @@
                             <td><?= $c['tanggal']; ?></td>
                             <td>
                                 <a href="<?= base_url() ?>cbm/ubah/<?= $c['id']; ?>" class="badge badge-success "><i class="fas fa-fw fa-edit"></i>ubah</a>
-                                <a href="<?= base_url() ?>cbm/detail/<?= $c['id']; ?>" class="badge badge-primary "><i class="fas fa-fw fa-eye"></i>detail</a>
                                 <a href="<?= base_url() ?>cbm/hapus/<?= $c['id']; ?>" class="badge badge-danger " onclick="return confirm('yakin?');"><i class="fas fa-fw fa-trash"></i>hapus</a>
                             </td>
                             <?php $i++; ?>
@@ -94,39 +93,24 @@
                     </button>
                 </div>
                 <div class="modal-body">
-
-                    <form action="<?= base_url('karyawan'); ?>" method="post">
+                <form action="<?= base_url('cbm'); ?>" method="post">
                         <div class="form-group">
-                            <label for="nama_karyawan">Nama Karyawan</label>
-                            <input type="text" class="form-control" id="nama_karyawan" name="nama_karyawan">
-                            <small class="form-text text-danger"><?= form_error('nama_karyawan'); ?></small>
-                        </div>
-                        <div class="form-group">
-                            <label for="dep_karyawan">Departemen</label>
-                            <select class="form-control" id="dep_karyawan" name="dep_karyawan">
-                                <?php foreach ($departemen as $dep) : ?>
-                                <option value="<?= $dep['id_departemen']; ?>"><?= $dep['nama_departemen']; ?></option>
+                            <label for="id_karyawan">Nama Karyawan</label>
+                            <select class="form-control" id="id_karyawan" name="id_karyawan">
+                                <?php foreach ($karyawan as $kar) : ?>
+                                <option value="<?= $kar['id_karyawan']; ?>"><?= $kar['nama_karyawan']; ?></option>
                                 <?php endforeach; ?>
 
                             </select>
+                        </div> 
+                        <div class="form-group">
+                            <label for="tanggal">Tanggal Bekerja</label>
+                            <input type="date" class="form-control" id="tanggal" name="tanggal" value="<?php echo date('Y-m-d'); ?>">
                         </div>
                         <div class="form-group">
-                        <label for="jabatan">Jabatan</label>
-                        <select class="form-control" id="jabatan" name="jabatan">
-                            <option value="KARYAWAN">KARYAWAN</option>
-                            <option value="MANDOR">MANDOR</option>
-                            <option value="ASISTEN MANDOR">ASISTEN MANDOR</option>
-                        
-                        </select>
-                    </div>
-                        <div class="form-group">
-                            <label for="kota">Kota</label>
-                            <input type="text" class="form-control" id="kota" name="kota">
-                            <small class="form-text text-danger"><?= form_error('kota'); ?></small>
-                        </div>
-                        <div class="form-group">
-                            <label for="tgl_masuk">Tanggal Masuk</label>
-                            <input type="date" class="form-control" id="tgl_masuk" name="tgl_masuk">
+                            <label for="cbm">Cbm yang dihasilkan</label>
+                            <input type="text" class="form-control" id="cbm" name="cbm">
+                            <small class="form-text text-danger"><?= form_error('cbm'); ?></small>
                         </div>
 
                 </div>
