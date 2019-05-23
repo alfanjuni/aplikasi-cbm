@@ -8,6 +8,7 @@ class Admin extends CI_Controller
         parent::__construct();
         $this->load->model('Departemen_model');
         $this->load->model('Karyawan_model');
+        $this->load->model('Analytic');
         $this->load->model('Role_model');
         $this->load->library('form_validation');
         is_logged_in();
@@ -18,6 +19,7 @@ class Admin extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['departemen'] = $this->Departemen_model->getAllDepartemen();
         $data['karyawan'] = $this->Karyawan_model->getAllKaryawan();
+        $data['topDemanded'] = $this->Analytic->topDemanded();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);

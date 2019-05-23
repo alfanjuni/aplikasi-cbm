@@ -66,6 +66,49 @@
 
     </div>
     <!-- Content Row -->
-</div>
+    <div class="row">
+    <div class="col-xl-5 col-md-6 mb-9">
+        <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="row margin-top-5">
+                        <div class="col">
+                            <div class="panel panel-hash">
+                                <div class="panel-heading"><h3><i class="fas fa-medal alert-warning"></i> <span class="badge alert-primary">KARYAWAN TERBAIK</span></h3></div>
+                                <?php if($topDemanded): ?>
+                                    <table class="table table-striped table-responsive table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Ranking</th>
+                                                <th>Nama Karyawan</th>
+                                                <th>Total Cbm</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php $i=1;?>
+                                        <?php foreach($topDemanded as $get):?>
+                                            <tr>
+                                            <td><?=$i?></td>
+                                                <td><?=$get->nama_karyawan?></td>
+                                                <td><?=$get->totCbm?></td>
+                                            </tr>
+                                            <?php $i++;?>
+                                        <?php endforeach; ?>
+                                        </tbody>
+                                    </table>
+                                    <?php else: ?>
+                                    No Data
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+    
+    </div>
 <!-- End of Main Content -->
 </div> 
