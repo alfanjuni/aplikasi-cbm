@@ -65,16 +65,17 @@
         </div>
 
     </div>
-    <!-- Content Row -->
+
     <div class="row">
-    <div class="col-xl-5 col-md-6 mb-9">
-        <div class="card border-left-primary shadow h-100 py-2">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="row margin-top-5">
-                        <div class="col">
-                            <div class="panel panel-hash">
-                                <div class="panel-heading"><h3><i class="fas fa-medal alert-warning"></i> <span class="badge alert-primary">KARYAWAN TERBAIK</span></h3></div>
+
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-xl-5 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                        <div class="panel panel-hash">
+                                <div class="panel-heading"><h3><i class="fas fa-trophy alert-warning"></i> <span class="badge alert-primary">KARYAWAN TERBAIK</span></h3></div>
                                 <?php if($topDemanded): ?>
                                     <table class="table table-striped table-responsive table-hover">
                                         <thead>
@@ -101,15 +102,56 @@
                                     <?php endif; ?>
                                 </div>
                             </div>
-                        </div>
                     </div>
                 </div>
-                
             </div>
-            
         </div>
-    
+        <div class="col-xl-6 col-md-6 mb-4">
+            <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                        <div class="panel panel-hash">
+                                <div class="panel-heading"><h3><i class="fas fa-medal alert-warning"></i> <span class="badge alert-primary">KARYAWAN TERBAIK BY MONTH</span></h3></div>
+                                <?php if($bulan): ?>
+                                    <table class="table table-striped table-responsive table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Bulan</th>
+                                                <th>Nama Karyawan</th>
+                                                <th>Total Cbm</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php $i=1;?>
+                                        <?php foreach($bulan as $get):?>
+                                            <tr>
+                                                 <td><?=$get->month?></td>
+                                                <td><?=$get->nama_karyawan?></td>
+                                                <td><?=$get->totCbm?></td>
+                                            </tr>
+                                            <?php $i++;?>
+                                        <?php endforeach; ?>
+                                        </tbody>
+                                    </table>
+                                    <?php else: ?>
+                                    No Data
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
     </div>
+
+    <!-- Content Row -->
+   
+
+
+
     </div>
 <!-- End of Main Content -->
 </div> 

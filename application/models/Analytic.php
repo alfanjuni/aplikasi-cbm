@@ -28,4 +28,19 @@ class Analytic extends CI_Model{
         }
     }
 
+    public function getTransByMonths(){
+		
+		$q = "SELECT  MONTHNAME(input_cbm.tanggal) AS 'month',karyawan.nama_karyawan, ROUND(SUM(input_cbm.cbm), 2) AS 'totCbm' FROM karyawan JOIN input_cbm ON input_cbm.id_karyawan = karyawan.id_karyawan GROUP BY karyawan.nama_karyawan ORDER BY totCbm DESC LIMIT 1";
+        
+        $data = $this->db->query($q);
+
+        if($data->num_rows() > 0){
+            return $data->result();
+        }
+
+        else{
+            return FALSE;
+        }
+    }
+
 }

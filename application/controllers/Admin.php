@@ -20,6 +20,7 @@ class Admin extends CI_Controller
         $data['departemen'] = $this->Departemen_model->getAllDepartemen();
         $data['karyawan'] = $this->Karyawan_model->getAllKaryawan();
         $data['topDemanded'] = $this->Analytic->topDemanded();
+        $data['bulan'] = $this->Analytic->getTransByMonths();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
