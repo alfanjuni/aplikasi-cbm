@@ -114,7 +114,7 @@
                         <div class="panel panel-hash">
                                 <div class="panel-heading"><h3><i class="fas fa-medal alert-warning"></i> <span class="badge alert-primary">KARYAWAN TERBAIK BY MONTH</span></h3></div>
                                 <?php if($bulan): ?>
-                                    <table class="table table-striped table-responsive table-hover">
+                                    <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
                                                 <th>Bulan</th>
