@@ -10,6 +10,7 @@ class Admin extends CI_Controller
         $this->load->model('Karyawan_model');
         $this->load->model('Analytic');
         $this->load->model('Role_model');
+        $this->load->model('Userlist_model');
         $this->load->library('form_validation');
         is_logged_in();
     }
@@ -26,6 +27,16 @@ class Admin extends CI_Controller
         $this->load->view('templates/topbar', $data);
         $this->load->view('admin/index', $data);
         $this->load->view('templates/footer');
+    }
+
+    public function hapususer($id = 0)
+    {
+        $data['person'] = $this->db->get_where('user', ['id' => $id])->row_array();
+        if ($data['person'] != null){
+            $this->Userlist_model->hapusDataUser($id);
+            $this->session->set_flashdata('flash', 'Dihapus');
+        }
+        redirect('admin/userlist');
     }
     public function role()
     {
@@ -48,7 +59,18 @@ class Admin extends CI_Controller
             redirect('admin/role');
         }
     }
+    public function userlist()
+    {
 
+        $data['title'] = 'User List';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['users'] = $this->Userlist_model->getAllUser();
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('admin/userlist', $data);
+        $this->load->view('templates/footer');
+    }
 
     public function roleaccess($role_id)
     {
@@ -121,5 +143,19 @@ class Admin extends CI_Controller
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
         Access Changed!
       </div>');
+    }
+
+
+    public function setaktif($id = 0)
+    {
+        $data = [
+            "is_active" => '1'
+        ];
+       
+        $this->db->where('id',$id);
+        $this->db->update('user', $data);
+        $this->session->set_flashdata('flash', 'Sudah Aktif');
+        redirect('admin/userlist');
+        
     }
 }

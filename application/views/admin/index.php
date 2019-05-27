@@ -106,6 +106,55 @@
                 </div>
             </div>
         </div>
+        <?php
+            $queryApril = "SELECT  MONTHNAME(input_cbm.tanggal) AS 'month',karyawan.nama_karyawan,ROUND(SUM(input_cbm.cbm), 2) AS 'totCbm' FROM karyawan JOIN input_cbm ON input_cbm.id_karyawan = karyawan.id_karyawan WHERE MONTH(input_cbm.tanggal)=1  GROUP BY MONTH, karyawan.id_karyawan   ORDER BY totCbm DESC LIMIT 1
+            ";
+            $januari = $this->db->query($queryApril)->result_array();
+            
+            $queryApril = "SELECT  MONTHNAME(input_cbm.tanggal) AS 'month',karyawan.nama_karyawan,ROUND(SUM(input_cbm.cbm), 2) AS 'totCbm' FROM karyawan JOIN input_cbm ON input_cbm.id_karyawan = karyawan.id_karyawan WHERE MONTH(input_cbm.tanggal)=2  GROUP BY MONTH, karyawan.id_karyawan   ORDER BY totCbm DESC LIMIT 1
+            ";
+            $februari = $this->db->query($queryApril)->result_array();
+            
+            $queryApril = "SELECT  MONTHNAME(input_cbm.tanggal) AS 'month',karyawan.nama_karyawan,ROUND(SUM(input_cbm.cbm), 2) AS 'totCbm' FROM karyawan JOIN input_cbm ON input_cbm.id_karyawan = karyawan.id_karyawan WHERE MONTH(input_cbm.tanggal)=3  GROUP BY MONTH, karyawan.id_karyawan   ORDER BY totCbm DESC LIMIT 1
+            ";
+            $maret = $this->db->query($queryApril)->result_array();
+            
+            $queryApril = "SELECT  MONTHNAME(input_cbm.tanggal) AS 'month',karyawan.nama_karyawan,ROUND(SUM(input_cbm.cbm), 2) AS 'totCbm' FROM karyawan JOIN input_cbm ON input_cbm.id_karyawan = karyawan.id_karyawan WHERE MONTH(input_cbm.tanggal)=4  GROUP BY MONTH, karyawan.id_karyawan   ORDER BY totCbm DESC LIMIT 1
+                        ";
+            $april = $this->db->query($queryApril)->result_array();
+            
+            $queryApril = "SELECT  MONTHNAME(input_cbm.tanggal) AS 'month',karyawan.nama_karyawan,ROUND(SUM(input_cbm.cbm), 2) AS 'totCbm' FROM karyawan JOIN input_cbm ON input_cbm.id_karyawan = karyawan.id_karyawan WHERE MONTH(input_cbm.tanggal)=5  GROUP BY MONTH, karyawan.id_karyawan   ORDER BY totCbm DESC LIMIT 1
+            ";
+            $mei = $this->db->query($queryApril)->result_array();
+            
+            $queryApril = "SELECT  MONTHNAME(input_cbm.tanggal) AS 'month',karyawan.nama_karyawan,ROUND(SUM(input_cbm.cbm), 2) AS 'totCbm' FROM karyawan JOIN input_cbm ON input_cbm.id_karyawan = karyawan.id_karyawan WHERE MONTH(input_cbm.tanggal)=6  GROUP BY MONTH, karyawan.id_karyawan   ORDER BY totCbm DESC LIMIT 1
+            ";
+            $juni = $this->db->query($queryApril)->result_array();
+            
+            $queryApril = "SELECT  MONTHNAME(input_cbm.tanggal) AS 'month',karyawan.nama_karyawan,ROUND(SUM(input_cbm.cbm), 2) AS 'totCbm' FROM karyawan JOIN input_cbm ON input_cbm.id_karyawan = karyawan.id_karyawan WHERE MONTH(input_cbm.tanggal)=7  GROUP BY MONTH, karyawan.id_karyawan   ORDER BY totCbm DESC LIMIT 1
+            ";
+            $juli = $this->db->query($queryApril)->result_array();
+
+            $queryApril = "SELECT  MONTHNAME(input_cbm.tanggal) AS 'month',karyawan.nama_karyawan,ROUND(SUM(input_cbm.cbm), 2) AS 'totCbm' FROM karyawan JOIN input_cbm ON input_cbm.id_karyawan = karyawan.id_karyawan WHERE MONTH(input_cbm.tanggal)=8  GROUP BY MONTH, karyawan.id_karyawan   ORDER BY totCbm DESC LIMIT 1
+            ";
+            $agustus = $this->db->query($queryApril)->result_array();
+
+            $queryApril = "SELECT  MONTHNAME(input_cbm.tanggal) AS 'month',karyawan.nama_karyawan,ROUND(SUM(input_cbm.cbm), 2) AS 'totCbm' FROM karyawan JOIN input_cbm ON input_cbm.id_karyawan = karyawan.id_karyawan WHERE MONTH(input_cbm.tanggal)=9  GROUP BY MONTH, karyawan.id_karyawan   ORDER BY totCbm DESC LIMIT 1
+            ";
+            $september = $this->db->query($queryApril)->result_array();
+
+            $queryApril = "SELECT  MONTHNAME(input_cbm.tanggal) AS 'month',karyawan.nama_karyawan,ROUND(SUM(input_cbm.cbm), 2) AS 'totCbm' FROM karyawan JOIN input_cbm ON input_cbm.id_karyawan = karyawan.id_karyawan WHERE MONTH(input_cbm.tanggal)=10  GROUP BY MONTH, karyawan.id_karyawan   ORDER BY totCbm DESC LIMIT 1
+            ";
+            $oktober = $this->db->query($queryApril)->result_array();
+
+            $queryApril = "SELECT  MONTHNAME(input_cbm.tanggal) AS 'month',karyawan.nama_karyawan,ROUND(SUM(input_cbm.cbm), 2) AS 'totCbm' FROM karyawan JOIN input_cbm ON input_cbm.id_karyawan = karyawan.id_karyawan WHERE MONTH(input_cbm.tanggal)=11  GROUP BY MONTH, karyawan.id_karyawan   ORDER BY totCbm DESC LIMIT 1
+            ";
+            $november = $this->db->query($queryApril)->result_array();
+
+            $queryApril = "SELECT  MONTHNAME(input_cbm.tanggal) AS 'month',karyawan.nama_karyawan,ROUND(SUM(input_cbm.cbm), 2) AS 'totCbm' FROM karyawan JOIN input_cbm ON input_cbm.id_karyawan = karyawan.id_karyawan WHERE MONTH(input_cbm.tanggal)=12  GROUP BY MONTH, karyawan.id_karyawan   ORDER BY totCbm DESC LIMIT 1
+            ";
+            $desember = $this->db->query($queryApril)->result_array();
+         ?>
         <div class="col-xl-6 col-md-6 mb-4">
             <div class="card border-left-success shadow h-100 py-2">
                 <div class="card-body">
@@ -114,7 +163,7 @@
                         <div class="panel panel-hash">
                                 <div class="panel-heading"><h3><i class="fas fa-medal alert-warning"></i> <span class="badge alert-primary">KARYAWAN TERBAIK BY MONTH</span></h3></div>
                                 <?php if($bulan): ?>
-                                    <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
+                                    <table class="table table-bordered table-hover"  width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
                                                 <th>Bulan</th>
@@ -124,11 +173,110 @@
                                         </thead>
                                         <tbody>
                                             <?php $i=1;?>
-                                        <?php foreach($bulan as $get):?>
+                                            <?php foreach($januari as $a):?>
                                             <tr>
-                                                 <td><?=$get->month?></td>
-                                                <td><?=$get->nama_karyawan?></td>
-                                                <td><?=$get->totCbm?></td>
+                                                 <td><?=$a['month'];?></td>
+                                                <td><?=$a['nama_karyawan'];?></td>
+                                                <td><?=$a['totCbm'];?></td>
+                                            </tr>
+                                            <?php $i++;?>
+                                        <?php endforeach; ?>
+                                        
+                                        <?php foreach($februari as $a):?>
+                                            <tr>
+                                                 <td><?=$a['month'];?></td>
+                                                <td><?=$a['nama_karyawan'];?></td>
+                                                <td><?=$a['totCbm'];?></td>
+                                            </tr>
+                                            <?php $i++;?>
+                                        <?php endforeach; ?>
+                                        
+                                        <?php foreach($maret as $a):?>
+                                            <tr>
+                                                 <td><?=$a['month'];?></td>
+                                                <td><?=$a['nama_karyawan'];?></td>
+                                                <td><?=$a['totCbm'];?></td>
+                                            </tr>
+                                            <?php $i++;?>
+                                        <?php endforeach; ?>
+
+                                        <?php foreach($april as $a):?>
+                                            <tr>
+                                                 <td><?=$a['month'];?></td>
+                                                <td><?=$a['nama_karyawan'];?></td>
+                                                <td><?=$a['totCbm'];?></td>
+                                            </tr>
+                                            <?php $i++;?>
+                                        <?php endforeach; ?>
+                                        
+                                        <?php foreach($mei as $a):?>
+                                            <tr>
+                                                 <td><?=$a['month'];?></td>
+                                                <td><?=$a['nama_karyawan'];?></td>
+                                                <td><?=$a['totCbm'];?></td>
+                                            </tr>
+                                            <?php $i++;?>
+                                        <?php endforeach; ?>
+
+                                        <?php foreach($juni as $a):?>
+                                            <tr>
+                                                 <td><?=$a['month'];?></td>
+                                                <td><?=$a['nama_karyawan'];?></td>
+                                                <td><?=$a['totCbm'];?></td>
+                                            </tr>
+                                            <?php $i++;?>
+                                        <?php endforeach; ?>
+
+                                        <?php foreach($juli as $a):?>
+                                            <tr>
+                                                 <td><?=$a['month'];?></td>
+                                                <td><?=$a['nama_karyawan'];?></td>
+                                                <td><?=$a['totCbm'];?></td>
+                                            </tr>
+                                            <?php $i++;?>
+                                        <?php endforeach; ?>
+
+                                        <?php foreach($agustus as $a):?>
+                                            <tr>
+                                                 <td><?=$a['month'];?></td>
+                                                <td><?=$a['nama_karyawan'];?></td>
+                                                <td><?=$a['totCbm'];?></td>
+                                            </tr>
+                                            <?php $i++;?>
+                                        <?php endforeach; ?>
+
+                                        <?php foreach($september as $a):?>
+                                            <tr>
+                                                 <td><?=$a['month'];?></td>
+                                                <td><?=$a['nama_karyawan'];?></td>
+                                                <td><?=$a['totCbm'];?></td>
+                                            </tr>
+                                            <?php $i++;?>
+                                        <?php endforeach; ?>
+
+                                        <?php foreach($oktober as $a):?>
+                                            <tr>
+                                                 <td><?=$a['month'];?></td>
+                                                <td><?=$a['nama_karyawan'];?></td>
+                                                <td><?=$a['totCbm'];?></td>
+                                            </tr>
+                                            <?php $i++;?>
+                                        <?php endforeach; ?>
+
+                                        <?php foreach($november as $a):?>
+                                            <tr>
+                                                 <td><?=$a['month'];?></td>
+                                                <td><?=$a['nama_karyawan'];?></td>
+                                                <td><?=$a['totCbm'];?></td>
+                                            </tr>
+                                            <?php $i++;?>
+                                        <?php endforeach; ?>
+
+                                        <?php foreach($desember as $a):?>
+                                            <tr>
+                                                 <td><?=$a['month'];?></td>
+                                                <td><?=$a['nama_karyawan'];?></td>
+                                                <td><?=$a['totCbm'];?></td>
                                             </tr>
                                             <?php $i++;?>
                                         <?php endforeach; ?>
