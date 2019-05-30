@@ -72,9 +72,12 @@
                     </tfoot>
 
                     <tbody>
+                    <?php $i=1;?>
                         <?php foreach ($karyawan as $kar) : ?>
                         <tr>
-                            <td><?= $kar['id_karyawan']; ?></td>
+                        
+
+                            <td><?= $i; ?></td>
                             <td><?= $kar['nama_karyawan']; ?></td>
                             <td><?= $kar['nama_departemen']; ?></td>
                             <td><?= $kar['jabatan']; ?></td>
@@ -88,6 +91,7 @@
                             </td>
 
                         </tr>
+                        <?php $i++;?>
                         <?php endforeach; ?>
                     </tbody>
 
