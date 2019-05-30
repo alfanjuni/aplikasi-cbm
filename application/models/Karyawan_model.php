@@ -58,7 +58,9 @@ class Karyawan_model extends CI_model
             "kota" => $this->input->post('kota', true),
             "dep_karyawan" => $this->input->post('dep_karyawan', true),
             "tgl_masuk" => $this->input->post('tgl_masuk', true),
-            "jabatan" => $this->input->post('jabatan', true)
+            "jabatan" => $this->input->post('jabatan', true),
+            "no_rek" => $this->input->post('no_rek', true),
+            "nik" => $this->input->post('nik', true)
         ];
 
         $this->db->insert('karyawan', $data);
@@ -77,7 +79,9 @@ class Karyawan_model extends CI_model
             "kota" => $this->input->post('kota', true),
             "dep_karyawan" => $this->input->post('dep_karyawan', true),
             "tgl_masuk" => $this->input->post('tgl_masuk', true),
-            "jabatan" => $this->input->post('jabatan', true)
+            "jabatan" => $this->input->post('jabatan', true),
+            "no_rek" => $this->input->post('no_rek', true),
+            "nik" => $this->input->post('nik', true)
         ];
         $this->db->where('id_karyawan', $this->input->post('id_karyawan'));
         $this->db->update('karyawan', $data);

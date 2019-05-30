@@ -51,6 +51,7 @@
                             <th>Departemen</th>
                             <th>Jabatan</th>
                             <th>Kota</th>
+                            <th>No NIK</th>
                             <th>Tanggal Masuk</th>
                             <th>Action</th>
 
@@ -63,6 +64,7 @@
                             <th>Departemen</th>
                             <th>Jabatan</th>
                             <th>Kota</th>
+                            <th>No NIK</th>
                             <th>Tanggal Masuk</th>
                             <th>Action</th>
 
@@ -77,6 +79,7 @@
                             <td><?= $kar['nama_departemen']; ?></td>
                             <td><?= $kar['jabatan']; ?></td>
                             <td><?= $kar['kota']; ?></td>
+                            <td><?= $kar['nik']; ?></td>
                             <td><?= $kar['tgl_masuk']; ?></td>
                             <td>
                                 <a href="<?= base_url() ?>karyawan/ubah/<?= $kar['id_karyawan']; ?>" class="badge badge-success "><i class="fas fa-fw fa-edit"></i>ubah</a>
@@ -135,6 +138,15 @@
                             <label for="kota">Kota</label>
                             <input type="text" class="form-control" id="kota" name="kota">
                             <small class="form-text text-danger"><?= form_error('kota'); ?></small>
+                        </div>
+                        <div class="form-group">
+                            <label for="no_rek">NO REKENING</label>
+                            <input type="text" class="form-control" id="no_rek" name="no_rek">
+                           
+                        </div>
+                        <div class="form-group">
+                            <label for="nik">NO NIK</label>
+                            <input type="text" class="form-control" id="nik" name="nik">
                         </div>
                         <div class="form-group">
                             <label for="tgl_masuk">Tanggal Masuk</label>

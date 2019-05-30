@@ -47,6 +47,16 @@
                             <small class="form-text text-danger"><?= form_error('kota'); ?></small>
                         </div>
                         <div class="form-group">
+                            <label for="no_rek">NO Rekening</label>
+                            <input type="text" class="form-control" id="no_rek" name="no_rek" value="<?= $karyawan['no_rek']; ?>">
+                           
+                        </div>
+                        <div class="form-group">
+                            <label for="nik">NO NIK</label>
+                            <input type="text" class="form-control" id="nik" name="nik" value="<?= $karyawan['nik']; ?>">
+                        
+                        </div>
+                        <div class="form-group">
                             <label for="tgl_masuk">Tanggal Masuk</label>
                             <input type="date" class="form-control" id="tgl_masuk" name="tgl_masuk" value="<?= $karyawan['tgl_masuk']; ?>">
                         </div>
