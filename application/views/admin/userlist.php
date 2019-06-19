@@ -17,9 +17,7 @@
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <a href="<?= base_url(); ?>user/tambah" class="btn btn-primary"><i class="fas fa-fw fa-plus"></i> User Baru</a>
-        </div>
+        
         <div class="card-body">
             <div class="table-responsive">
 
